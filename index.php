@@ -74,6 +74,18 @@
         'https://www.themoviedb.org/t/p/w600_and_h900_bestv2/7WxwYuJLFXFBU53i02XQ56p3Lj3.jpg',
         8
     );
+
+    //terza istanza
+    $movie3 = new Movie (
+        'Divergent',
+        ['Azione', 'Avventura', 'Fantascienza'],
+        'In un futuro dispotico, in base alle caratteristiche delle loro personalità gli individui sono raggruppati in varie fazioni. La sedicenne Tris Prior (Shailene Woodley), invece, non appartiene a nessun gruppo e rientra tra coloro che vengono definiti "divergenti". Scoprendo una cospirazione tesa ad eliminare tutti i divergenti, Tris dovrà capire cosa li rende così pericolosi prima che sia troppo tardi.',
+        'https://www.themoviedb.org/t/p/w600_and_h900_bestv2/wSan6AKkI0qeDVBHpLJnaZA3es1.jpg',
+        6
+    );
+
+    //array
+    $movieArray = [$movie1, $movie2, $movie3];
 ?>
 
 <!DOCTYPE html>
@@ -100,7 +112,7 @@
 
         <main class="py-4">
             <div class="container">
-                <ul>
+                <!-- <ul>
                     <li>
                         <span class="fw-bold">Titolo:</span> 
                         <?php echo $movie1->getTitle(); ?>
@@ -141,7 +153,46 @@
                         <span class="fw-bold">Valutazione:</span>
                         <?php echo $movie2->getVoteAverage();?>
                     </li>
-                </ul>
+                </ul> -->
+
+
+                <div class="row">
+                    <?php foreach ($movieArray as $movie) { ?>
+
+                        <div class="col-4">
+                            <!-- CARD -->
+                            <div class="card">
+                                <!-- CARD IMG -->
+                                <img src="<?php echo $movie->getPosterPasth(); ?>" class="card-img-top" alt="<?php echo $movie->getTitle(); ?>">
+                                <!-- CARD BODY -->
+                                <div class="card-body">
+                                    <!-- LIST GROUP -->
+                                    <ul class="list-group list-group-flush">
+                                        <li class="list-group-item">
+                                            <span class="fw-bold">Titolo:</span>
+                                            <?php echo $movie->getTitle(); ?>
+                                        </li>
+                                        <li class="list-group-item">
+                                            <span class="fw-bold">Generi:</span>
+                                            <?php echo implode(", ", $movie->getGenres()) ?>
+                                        </li>
+                                        <li class="list-group-item">
+                                            <span class="fw-bold">Valutazione:</span>
+                                            <?php echo $movie->getVoteAverage();?>
+                                        </li>
+                                        <li class="list-group-item">
+                                            <p class="m-0 fw-bold">Descrizione:</p>
+                                            <?php echo $movie->getOverview();?>
+                                        </li>
+                                    </ul>
+                                </div><!-- CARD BODY -->
+                            </div><!-- CARD -->
+                        </div><!-- COL -->
+                    
+                    <?php } ?>
+                </div><!-- ROW -->
+
+
             </div><!-- CONTAINER -->
         </main>
     </body>
