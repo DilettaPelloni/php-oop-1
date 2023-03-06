@@ -17,11 +17,11 @@
             string $_posterPath,
             float $_voteAverage
         ){
-            self::setTitle ($_title);
-            self::setGenres ($_genres);
-            self::setOverview ($_overview);
-            self::setPosterPasth ($_posterPath);
-            self::setVoteAverage ($_voteAverage);
+            $this->setTitle ($_title);
+            $this->setGenres ($_genres);
+            $this->setOverview ($_overview);
+            $this->setPosterPasth ($_posterPath);
+            $this->setVoteAverage ($_voteAverage);
         }
         //setters
         public function setTitle ($_title) {
